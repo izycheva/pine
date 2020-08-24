@@ -1,0 +1,6 @@
+### Pine dependencies ###
+z3-solver == 4.8.7.0
+numpy >= 1.18.4
+sklearn == 0.0
+scipy == 1.4.1
+matplotlib == 3.2.1

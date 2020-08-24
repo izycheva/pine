@@ -1,0 +1,19 @@
+#!/bin/bash --posix
+
+SCALACLASSPATH="./src/jars/daisy.jar:\
+./src/jars/mpfr_java-1.0-linux64.jar:\
+./src/jars/mpfr_java-1.0.jar:\
+./src/jars/ceres_2.11-0.0.jar:\
+./src/jars/scala-compiler.jar:\
+./src/jars/scala-library.jar:\
+./src/jars/scala-reflect.jar:\
+./src/jars/scala-parser-combinators_2.11-1.0.4.jar:\
+./src/jars/scala-smtlib_2.11-0.2.jar:\
+./src/jars/hawtjni-runtime-1.9.jar"
+
+TMP=$LC_NUMERIC
+LC_NUMERIC=en_US.UTF-8
+
+java -Xmx2G -Xms512M -Xss64M -classpath "${SCALACLASSPATH}" -Dscala.usejavacp=false scala.tools.nsc.MainGenericRunner -classpath "${SCALACLASSPATH}" daisy.PythonMain $@ 2>&1 | tee -i last.log
+
+LC_NUMERIC=$TMP

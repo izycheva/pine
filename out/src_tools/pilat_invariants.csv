@@ -1,0 +1,49 @@
+Benchmark,Ranges,Invariant
+pendulum_approx,none,-
+rotation_nondet_small_angle,none,-
+rotation_nondet_large_angle,none,-
+nonlin_example1,none,-
+nonlin_example2,none,-
+nonlin_example3,none,-
+arrow_hurwicz,none,-
+harmonic,"-2.7<=x<=2.7
+-2.7<=y<=2.7",(y * x) + (x * x) + (y * y) <= 5.078125
+symplectic,"none: doesn't satisfy precondition",-
+filter_goubault,"none: doesn't satisfy precondition",-
+filter_mine1,"none: doesn't satisfy precondition",-
+filter_mine2,"-0.85<=s0<=0.85
+-1<=s1<=1","-2.14285714286 * (s1 * s0) + 
+1.42857142857 * (s0 * s0) + (s1 * s1) <= 0.1953125"
+filter_mine2_nondet,"-1.78<=s0<=1.78
+-2.11<=s1<=2.11",(-2.14285714286 * (s1 * s0) + 1.42857142857 * (s0 * s0)) + 1. * (s1 * s1) <= 0.830078125
+pendulum_small,"-1.25<=u<=1.25
+-3.65<=v<=3.65",0.5 * (v * u) + 9.81 * (u * u) + (v * v) <= 12.451171875
+ex1,"-17.7<=x<=17.7
+ -20.8<=y<=20.8","-2.14285714286 * (y * x) + 1.42857142857 * (x * x) + 1. * (y * y)
+  <= 84.033203125"
+ex1_reset,none,-
+ex2,"-2<=x0<=2
+-2<=x1<=2
+-1.0<=x2<=1.0
+-1.0<=x3<=1.0
+-1<=in0<=1","-18.375 * (x1 * x0) + -9.875 * (x2 * x0)
+  + 10.5 * (x3 * x0) + -6.75 * (in0 * x0)
+  + 12.25 * (x0 * x0) + 6.65 * (x2 * x1)
+  + -9.8 * (x3 * x1) + 4.375 * (in0 * x1)
+  + 8.575 * (x1 * x1) + -3.8 * (x3 * x2)
+  + 2.875 * (in0 * x2) + 2.075 * (x2 * x2)
+  + -2.5 * (in0 * x3) + 2.8 * (x3 * x3)
+  + 1. * (in0 * in0) <= 0.1953125"
+ex2_reset,none,
+ex3_leadlag,none,-
+ex3_reset_leadlag,none,-
+ex4_gaussian,none,-
+ex4_reset_gaussian,none,-
+ex5_coupled_mass,none,-
+ex5_reset_coupled_mass,none,-
+ex6_butterworth,none,-
+ex6_reset_butterworth,none,-
+ex7_dampened,none,-
+ex7_reset_dampened,none,
+ex8_harmonic,none,-
+ex8_reset_harmonic,none,-
