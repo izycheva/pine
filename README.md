@@ -1,3 +1,5 @@
+<img align="right" src="https://user-images.githubusercontent.com/52134068/96776150-e6c5df80-13e8-11eb-964c-c77f830dd884.png" width="100" > 
+
 **Pine** is a tool for synthesizing sound inductive invariants for floating-point numerical loops. Pine generates invariants of the form of polynomial inequalities, which tightly bound the values of loop variables.
 
 ## Goals of the artifact (for SAS 2020 AEC)
@@ -109,3 +111,5 @@ The numbers in the generated table will not match exactly those presented in the
 As mentioned in `Section 5` of the paper, for estimate of the shape's volume it uses Monte-Carlo Simulation.
 
 If you want to try out different parameters of Pine, you can change them directly in the python script `src/exp_use_default.py` (lines 10-18). Then use the scripts `./pine_table1.sh` and `./pine_single.sh` to run Pine with the new parameters.
+
+*Icon made by [Freepik](https://www.flaticon.com/authors/freepik) taken from [Flaticon](https://www.flaticon.com).
