@@ -2,20 +2,8 @@
 
 **Pine** is a tool for synthesizing sound inductive invariants for floating-point numerical loops. Pine generates invariants of the form of polynomial inequalities, which tightly bound the values of loop variables.
 
-## Goals of the artifact (for SAS 2020 AEC)
 
-In our paper, we evaluated the following about the tool Pine (`Section 5`):
-
-1. Comparison with State-of-the-Art: we generated invariants using Pine and compared volumes of generated invariants' shapes. The results are in `Table 1` (columns 4,6 for Pine).
-
-2. Efficiency: we evaluated Pine's running time and presented the results in `Table 1` (column 5).
-
-3. Sensitivity: we evaluated the usefulness of Pine's parameters (`Section 5.5`).
-
-In support of these results, this artifact reproduces `Table 1`, `Figure 4`, and `Table 5`. We provide parameter sensitivity experiment for completeness, however, note that reproducing full results for `Figure 4` and `Table 5` takes over 6 hours.
-
-
-This document contains the following parts:
+The README contains the following parts:
 
 * System requirements
 
@@ -28,12 +16,25 @@ This document contains the following parts:
 
 ## Installation
 
-* Pine requires Python 3.7.
+* Pine requires Python3 and Java (has been tested with Python 3.7 and 3.9 and Java 1.8).
 
 * To install the dependencies run `pip3 install -r requirements.txt`.
 * For running the experiments using our scripts you will need to install [GNU Parallel](https://www.gnu.org/software/parallel/)
 
 * To run the tool using our scripts, follow the instructions below. All scripts must be executed from the repo home directory (to be changed).
+
+## Goals of the artifact (for SAS 2020 AEC)
+
+In our paper, we evaluated the following about the tool Pine (`Section 5`):
+
+1. Comparison with State-of-the-Art: we generated invariants using Pine and compared volumes of generated invariants' shapes. The results are in `Table 1` (columns 4,6 for Pine).
+
+2. Efficiency: we evaluated Pine's running time and presented the results in `Table 1` (column 5).
+
+3. Sensitivity: we evaluated the usefulness of Pine's parameters (`Section 5.5`).
+
+In support of these results, this artifact reproduces `Table 1`, `Figure 4`, and `Table 5`. We provide parameter sensitivity experiment for completeness, however, note that reproducing full results for `Figure 4` and `Table 5` takes over 6 hours.
+
 
 ## Running Pine
 
