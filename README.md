@@ -16,9 +16,9 @@ The README contains the following parts:
 
 ## Installation
 
-* Pine requires Python3 and Java (has been tested with Python 3.7 and 3.9 and Java 1.8).
+* Pine requires Python3 and Java (has been tested with Python 3.7, 3.9, 3.10 and Java 1.8).
 
-* To install the dependencies run `pip3 install -r requirements.txt`.
+* To install the dependencies run `pip3 install matplotlib numpy scipy scikit-learn z3-solver`. In the `requirements.txt` file you can see the versions of the libraries that were used originally during the development.
 * For running the experiments using our scripts you will need to install [GNU Parallel](https://www.gnu.org/software/parallel/)
 
 * To run the tool using our scripts, follow the instructions below. All scripts must be executed from the repo home directory (to be changed).
