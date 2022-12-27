@@ -30,7 +30,7 @@ def satisfiesPrecondition(point, ranges, programVars):
 def guessShape(hullVertices, vars, degree=2):
     poly = PolynomialFeatures(degree)
     features = poly.fit_transform(hullVertices)
-    featureList = poly.get_feature_names(vars)
+    featureList = poly.get_feature_names_out(vars)
     featureToCoef = {}
 
     for i in range(1, len(featureList)):
