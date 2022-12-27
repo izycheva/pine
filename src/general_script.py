@@ -11,7 +11,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.spatial import ConvexHull
 import math
-from scipy.spatial.qhull import QhullError
+from scipy.spatial.qhull import QhullError 
+# for versions of scipy >=1.9 
+# from scipy.spatial import QhullError
 
 # our libraries
 from solver_wrapper import Solver
@@ -457,18 +459,28 @@ def addRoundoff(program, ranges, parameters):
         # call Daisy to get roundoff error
         process = subprocess.Popen([daisycmd, tmpFileName, 'Float32'],
                                    stdout=subprocess.PIPE)
-        out = process.stdout.readline().decode("utf-8")
-        err = out.split('Error:')[1].strip()  # rm \n and Error
-        if 'e' in err:
-            # round the error to one digit after decimal pt
-            rnd = err[:(err.index('e') - len(err))]
-            rnd = f'{round_up(float(rnd), 1)}{err[err.index("e"):]}'
-        elif float(err) == 0:
-            rnd = err
-        else:
-            rnd_to = re.search(r'[^\.|0]', err).start() - 1
-            rnd = str(round_up(float(err), rnd_to))
-        return rnd
+        out_all = process.stdout.readlines()
+        for line in out_all:
+            out = line.decode("utf-8")
+            if 'Error' in out:
+                break
+
+        # Parse the rounding error value obtained from Daisy
+        try:
+            err = out.split('Error:')[1].strip()  # rm \n and Error
+            if 'e' in err:
+                # round the error to one digit after decimal pt
+                rnd = err[:(err.index('e') - len(err))]
+                rnd = f'{round_up(float(rnd), 1)}{err[err.index("e"):]}'
+            elif float(err) == 0:
+                rnd = err
+            else:
+                rnd_to = re.search(r'[^\.|0]', err).start() - 1
+                rnd = str(round_up(float(err), rnd_to))
+            return rnd
+        except Exception as ex:
+            print(f"There was a problem getting a rounding error for the input {assignment} \nCannot continue")
+            exit(100)
 
     # look for daisy script in the current directory
     daisycmd = findDaisy(os.getcwd())
