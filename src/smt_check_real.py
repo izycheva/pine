@@ -285,7 +285,7 @@ def checkInductiveWOCex(s, vars, mapVars, nondet, init, inductiveStep, cexs, dis
             cex[v] = s.getValue(mapVars[v])
         # for v in vars:
         #     cex[v + '!'] = s.getValue(mapVars[v + '!'])
-    elif resInit == Result.UNKNOWN:
+    elif result == Result.UNKNOWN:
         timestamp = time.time_ns()
         f = open(f'query_ind{timestamp}.sl', 'w')
         q = s.to_smt()
